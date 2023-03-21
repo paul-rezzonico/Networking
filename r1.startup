@@ -1,0 +1,11 @@
+ip address add 172.16.111.254/20 dev eth0
+ip link set eth0 up
+ip address add 172.16.95.253/20 dev eth1
+ip link set eth1 up
+ip route add default via 172.16.95.251
+echo "nameserver  8.8.8.8">>/etc/resolv.conf
+
+iptables -P INPUT DROP 
+iptables -P OUTPUT DROP
+iptables -A INPUT -i lo -j ACCEPT
+iptables -A FORWARD -p icmp -j DROP

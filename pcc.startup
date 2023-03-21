@@ -1,0 +1,7 @@
+ip address add 172.16.96.1/20 dev eth0
+ip link set eth0 up
+ip route add default via 172.16.111.254
+echo "nameserver  8.8.8.8">>/etc/resolv.conf
+
+apt update
+apt install nmap -y
