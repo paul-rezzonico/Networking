@@ -15,7 +15,7 @@ fi
 ping -c 4 172.16.96.1
 if [ $? -eq 1 ]
 then
-echo "\e[32mTest 2 : OK\e[0m"
+echo -e "\e[32mTest 2 : OK\e[0m"
 else
 echo -e "\e[31mTest Failed !\e[0m"
 return 1
@@ -25,7 +25,7 @@ fi
 ping -c 4 google.com
 if [ $? -eq 1 ]
 then
-echo"\e[32mTest 3 : OK\e[0m"
+echo -e "\e[32mTest 3 : OK\e[0m"
 else
 echo -e "\e[31mTest Failed !\e[0m"
 return 1
@@ -35,7 +35,7 @@ fi
 apt-get update
 if [ $? -eq 0 ]
 then
-echo "\e[32mTest 4 : OK\e[0m"
+echo -e "\e[32mTest 4 : OK\e[0m"
 else
 echo -e "\e[31mTest Failed !\e[0m"
 return 1
