@@ -45,9 +45,9 @@ echo -e "\e[31mTest Failed !\e[0m"
 return 1
 fi
 
-#Test 5 on vérifie que l'on ne peut pas accéder aux ports 25,53,80,465,587,2525 depuis pca :
-echo "Test 5 : port 25,53,80,465,587,2525 filtrés (non accessibles)"
-nmap -p 25,53,80,465,587,2525  172.16.112.35 | grep closed
+#Test 5 on vérifie que l'on ne peut pas accéder aux ports 25 depuis pca :
+echo "Test 5 : port 25 filtré (non accessibles)"
+nmap -p 25  172.16.112.35 | grep closed >> logs.txt
 if [ $? -eq 1 ]
 then
 echo -e "\e[32mTest 5 : OK\e[0m"
@@ -56,8 +56,63 @@ echo -e "\e[31mTest Failed !\e[0m"
 return 1
 fi
 
-#Test 6 on vérifie que l'on peut accéder au port 22 et 443 depuis pca :
-echo "Test 6 : port 443 accessible (application dpart)"
+#Test 6 on vérifie que l'on ne peut pas accéder au port 53 depuis pca :
+echo "Test 6 : port 53 filtré (non accessibles)"
+nmap -p 53 172.16.112.35 | grep closed >> logs.txt
+if [ $? -eq 1 ]
+then
+echo -e "\e[32mTest 6 : OK\e[0m"
+else
+echo -e "\e[31mTest Failed !\e[0m"
+return 1
+fi
+
+#Test 7 on vérifie que l'on ne peut pas accéder au port 80 depuis pca :
+echo "Test 7 : port 80 filtré (non accessibles)"
+nmap -p 80 172.16.112.35 | grep closed >> logs.txt
+if [ $? -eq 1 ]
+then
+echo -e "\e[32mTest 7 : OK\e[0m"
+else
+echo -e "\e[31mTest Failed !\e[0m"
+return 1
+fi
+
+#Test 8 on vérifie que l'on ne peut pas accéder au port 465 depuis pca :
+echo "Test 8 : port 465 filtré (non accessibles)"
+nmap -p 465 172.16.112.35 | grep closed >> logs.txt
+if [ $? -eq 1 ]
+then
+echo -e "\e[32mTest 8 : OK\e[0m"
+else
+echo -e "\e[31mTest Failed !\e[0m"
+return 1
+fi
+
+#Test 9 on vérifie que l'on ne peut pas accéder au port 587 depuis pca :
+echo "Test 9 : port 587 filtré (non accessibles)"
+nmap -p 587 172.16.112.35 | grep closed >> logs.txt
+if [ $? -eq 1 ]
+then
+echo -e "\e[32mTest 9 : OK\e[0m"
+else
+echo -e "\e[31mTest Failed !\e[0m"
+return 1
+fi
+
+#Test 10 on vérifie que l'on ne peut pas accéder au port 2525 depuis pca :
+echo "Test 10 : port 2525 filtré (non accessibles)"
+nmap -p 2525 172.16.112.35 | grep closed >> logs.txt
+if [ $? -eq 1 ]
+then
+echo -e "\e[32mTest 10 : OK\e[0m"
+else
+echo -e "\e[31mTest Failed !\e[0m"
+return 1
+fi
+
+#Test 11 on vérifie que l'on peut accéder au port 443 depuis pca :
+echo "Test 11 : port 443 accessible (application dpart)"
 nmap -p 443 172.16.112.35 | grep filtered
 if [ $? -eq 1 ]
 then
@@ -79,7 +134,7 @@ fi
 
 #Test 8 on vérifie que l'on ne peut pas accéder au port 25,53,80,465,587,2525 :
 echo "Test 8 : port 25,53,80,465,587,2525 filtrés (non accessibles)"
-nmap -p 25,53,80,465,587,2525 172.16.112.35
+nping -p 25,53,80,465,587,2525 172.16.112.35
 if [ $? -eq 1 ]
 then
 echo -e "\e[32mTest 8 : OK\e[0m"
