@@ -79,7 +79,7 @@ fi
 
 #Test 8 on vérifie que l'on ne peut pas accéder au port 25,53,80,465,587,2525 :
 echo "Test 8 : port 25,53,80,465,587,2525 filtrés (non accessibles)"
-nmap -p 25,53,80,465,587,2525
+nmap -p 25,53,80,465,587,2525 172.16.112.35
 if [ $? -eq 1 ]
 then
 echo -e "\e[32mTest 8 : OK\e[0m"
