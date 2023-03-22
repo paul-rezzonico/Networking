@@ -46,8 +46,8 @@ return 1
 fi
 
 #Test 5 on vérifie que l'on ne peut pas accéder aux ports 25,53,80,465,587,2525 depuis pca :
-echo "Test 5 : port 25,53,80,465,587,2525 filtrés (non accessibles)ssss"
-nmap -p 22,443,25,53,80,465,587,2525  172.16.112.35 | grep closed
+echo "Test 5 : port 25,53,80,465,587,2525 filtrés (non accessibles)"
+nmap -p 25,53,80,465,587,2525  172.16.112.35 | grep closed
 if [ $? -eq 1 ]
 then
 echo -e "\e[32mTest 5 : OK\e[0m"
