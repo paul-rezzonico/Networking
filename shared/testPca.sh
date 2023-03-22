@@ -77,3 +77,15 @@ echo -e "\e[31mTest Failed !\e[0m"
 return 1
 fi
 
+#Test 8 on vérifie que l'on ne peut pas accéder au port 25,53,80,465,587,2525 :
+echo "Test 8 : port 25,53,80,465,587,2525 filtrés (non accessibles)"
+nmap -p 25,53,80,465,587,2525
+if [ $? -eq 1 ]
+then
+echo -e "\e[32mTest 8 : OK\e[0m"
+else
+echo -e "\e[31mTest Failed !\e[0m"
+return 1
+fi
+
+
