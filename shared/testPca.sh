@@ -40,3 +40,13 @@ else
 echo -e "\e[31mTest Failed !\e[0m"
 return 1
 fi
+
+#Test 5 on vérifie que l'on peut accéder au serveur s (port 22 et 443)
+nmap -p 22,443,25,53,80,465,587,2525  172.16.112.35 | grep filtered
+if [ $? -eq 1 ]
+then
+echo -e "\e[32mTest 5 : OK\e[0m"
+else
+echo -e "\e[31mTest Failed !\e[0m"
+return 1
+fi
