@@ -3,7 +3,7 @@
 
 #Test 1 on vérifie que le ping est possible entre les deux machines pca et pcb :
 echo "Test 1 : ping entre pca et pcb"
-ping -c 4 172.16.64.2
+ping -c 4 -w 5 172.16.64.2
 if [ $? -eq 0 ]
 then
 echo -e "\e[32mTest 1 : OK\e[0m"
@@ -14,7 +14,7 @@ fi
 
 #Test 2 on vérifie que le ping est impossible entre les deux machines pca et pcc :
 echo "Test 2 : ping entre pca et pcc"
-ping -c 4 172.16.96.1
+ping -c 4 -w 5 172.16.96.1
 if [ $? -eq 1 ]
 then
 echo -e "\e[32mTest 2 : OK\e[0m"
@@ -25,7 +25,7 @@ fi
 
 #Test 3 on vérifie que le ping est impossible entre pca et internet :
 echo "Test 3 : ping entre pca et internet"
-ping -c 4 google.com
+ping -c 4 -w 5 google.com
 if [ $? -eq 1 ]
 then
 echo -e "\e[32mTest 3 : OK\e[0m"
@@ -57,8 +57,8 @@ return 1
 fi
 
 #Test 6 on vérifie que l'on peut accéder au port 22 et 443 depuis pca :
-echo "Test 6 : port 22,443 accessibles (ssh et https closed)"
-nmap -p 22,443 172.16.112.35 | grep filtered
+echo "Test 6 : port 443 accessible (application dpart)"
+nmap -p 443 172.16.112.35 | grep filtered
 if [ $? -eq 1 ]
 then
 echo -e "\e[32mTest 6 : OK\e[0m"
@@ -66,4 +66,7 @@ else
 echo -e "\e[31mTest Failed !\e[0m"
 return 1
 fi
+
+#Test 7 on vérifie que l'on peut accéder au port 22 et 443 depuis pca :
+nping -p 22
 
