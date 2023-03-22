@@ -55,7 +55,7 @@ else
 echo -e "\e[31mTest Failed !(1/2)\e[0m"
 return 1
 fi
-nping --tcp -p 25 | grep closed >> logs.txt
+nping --tcp -p 25 172.16.112.35 | grep closed >> logs.txt
 if [ $? -eq 1 ]
 then
 echo -e "\e[32mTest 5 : OK(2/2)\e[0m"
@@ -74,7 +74,7 @@ else
 echo -e "\e[31mTest Failed !(1/2)\e[0m"
 return 1
 fi
-nping --tcp -p 53 | grep closed >> logs.txt
+nping --tcp -p 53 172.16.112.35 | grep closed >> logs.txt
 if [ $? -eq 1 ]
 then
 echo -e "\e[32mTest 6 : OK(2/2)\e[0m"
@@ -93,7 +93,7 @@ else
 echo -e "\e[31mTest Failed !(1/2)\e[0m"
 return 1
 fi
-nping --tcp -p 80 | grep closed >> logs.txt
+nping --tcp -p 80 172.16.112.35 | grep closed >> logs.txt
 if [ $? -eq 1 ]
 then
 echo -e "\e[32mTest 7 : OK(2/2)\e[0m"
@@ -112,7 +112,7 @@ else
 echo -e "\e[31mTest Failed !(1/2)\e[0m"
 return 1
 fi
-nping --tcp -p 465 | grep closed >> logs.txt
+nping --tcp -p 465 172.16.112.35 | grep closed >> logs.txt
 if [ $? -eq 1 ]
 then
 echo -e "\e[32mTest 8 : OK(2/2)\e[0m"
@@ -131,7 +131,7 @@ else
 echo -e "\e[31mTest Failed !(1/2)\e[0m"
 return 1
 fi
-nping --tcp -p 587 | grep closed >> logs.txt
+nping --tcp -p 587 172.16.112.35 | grep closed >> logs.txt
 if [ $? -eq 1 ]
 then
 echo -e "\e[32mTest 9 : OK (2/2)\e[0m"
@@ -151,7 +151,7 @@ else
 echo -e "\e[31mTest Failed !(1/2)\e[0m"
 return 1
 fi
-nping --tcp -p 2525 | grep closed >> logs.txt
+nping --tcp -p 2525 172.16.112.35 | grep closed >> logs.txt
 if [ $? -eq 1 ]
 then
 echo -e "\e[32mTest 10 : OK(2/2)\e[0m"
@@ -170,7 +170,7 @@ else
 echo -e "\e[31mTest Failed !(1/2)\e[0m"
 return 1
 fi
-nping --tcp -p 443 | grep filtered >>logs.txt
+nping --tcp -p 443 172.16.112.35 | grep filtered >>logs.txt
 if [ $? -eq 1 ]
 then
 echo -e "\e[32mTest 11 : OK(2/2)\e[0m"
