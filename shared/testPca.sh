@@ -50,17 +50,17 @@ echo "Test 5 : port 25 filtré (non accessibles)"
 nmap -p 25  172.16.112.35 | grep closed >> logs.txt
 if [ $? -eq 1 ]
 then
-echo -e "\e[32mTest 5 : OK\e[0m"
+echo -e "\e[32mTest 5 : OK(1/2)\e[0m"
 else
-echo -e "\e[31mTest Failed !\e[0m"
+echo -e "\e[31mTest Failed !(1/2)\e[0m"
 return 1
 fi
 nping --tcp -p 25 | grep closed >> logs.txt
 if [ $? -eq 1 ]
 then
-echo -e "\e[32mTest 5 : OK\e[0m"
+echo -e "\e[32mTest 5 : OK(2/2)\e[0m"
 else
-echo -e "\e[31mTest Failed !\e[0m"
+echo -e "\e[31mTest Failed !(2/2)\e[0m"
 return 1
 fi
 
@@ -69,17 +69,17 @@ echo "Test 6 : port 53 filtré (non accessibles)"
 nmap -p 53 172.16.112.35 | grep closed >> logs.txt
 if [ $? -eq 1 ]
 then
-echo -e "\e[32mTest 6 : OK\e[0m"
+echo -e "\e[32mTest 6 : OK(1/2)\e[0m"
 else
-echo -e "\e[31mTest Failed !\e[0m"
+echo -e "\e[31mTest Failed !(1/2)\e[0m"
 return 1
 fi
 nping --tcp -p 53 | grep closed >> logs.txt
 if [ $? -eq 1 ]
 then
-echo -e "\e[32mTest 6 : OK\e[0m"
+echo -e "\e[32mTest 6 : OK(2/2)\e[0m"
 else
-echo -e "\e[31mTest Failed !\e[0m"
+echo -e "\e[31mTest Failed !(2/2)\e[0m"
 return 1
 fi
 
@@ -88,17 +88,17 @@ echo "Test 7 : port 80 filtré (non accessibles)"
 nmap -p 80 172.16.112.35 | grep closed >> logs.txt
 if [ $? -eq 1 ]
 then
-echo -e "\e[32mTest 7 : OK\e[0m"
+echo -e "\e[32mTest 7 : OK(1/2)\e[0m"
 else
-echo -e "\e[31mTest Failed !\e[0m"
+echo -e "\e[31mTest Failed !(1/2)\e[0m"
 return 1
 fi
 nping --tcp -p 80 | grep closed >> logs.txt
 if [ $? -eq 1 ]
 then
-echo -e "\e[32mTest 7 : OK\e[0m"
+echo -e "\e[32mTest 7 : OK(2/2)\e[0m"
 else
-echo -e "\e[31mTest Failed !\e[0m"
+echo -e "\e[31mTest Failed !(2/2)\e[0m"
 return 1
 fi
 
@@ -107,17 +107,17 @@ echo "Test 8 : port 465 filtré (non accessibles)"
 nmap -p 465 172.16.112.35 | grep closed >> logs.txt
 if [ $? -eq 1 ]
 then
-echo -e "\e[32mTest 8 : OK\e[0m"
+echo -e "\e[32mTest 8 : OK(1/2)\e[0m"
 else
-echo -e "\e[31mTest Failed !\e[0m"
+echo -e "\e[31mTest Failed !(1/2)\e[0m"
 return 1
 fi
 nping --tcp -p 465 | grep closed >> logs.txt
 if [ $? -eq 1 ]
 then
-echo -e "\e[32mTest 8 : OK\e[0m"
+echo -e "\e[32mTest 8 : OK(2/2)\e[0m"
 else
-echo -e "\e[31mTest Failed !\e[0m"
+echo -e "\e[31mTest Failed !(2/2)\e[0m"
 return 1
 fi
 
@@ -146,17 +146,17 @@ echo "Test 10 : port 2525 filtré (non accessibles)"
 nmap -p 2525 172.16.112.35 | grep closed >> logs.txt
 if [ $? -eq 1 ]
 then
-echo -e "\e[32mTest 10 : OK\e[0m"
+echo -e "\e[32mTest 10 : OK(1/2)\e[0m"
 else
-echo -e "\e[31mTest Failed !\e[0m"
+echo -e "\e[31mTest Failed !(1/2)\e[0m"
 return 1
 fi
 nping --tcp -p 2525 | grep closed >> logs.txt
 if [ $? -eq 1 ]
 then
-echo -e "\e[32mTest 10 : OK\e[0m"
+echo -e "\e[32mTest 10 : OK(2/2)\e[0m"
 else
-echo -e "\e[31mTest Failed !\e[0m"
+echo -e "\e[31mTest Failed !(2/2)\e[0m"
 return 1
 fi
 
@@ -165,17 +165,17 @@ echo "Test 11 : port 443 accessible (application dpart)"
 nmap -p 443 172.16.112.35 | grep filtered
 if [ $? -eq 1 ]
 then
-echo -e "\e[32mTest 6 : OK\e[0m"
+echo -e "\e[32mTest 11 : OK(1/2)\e[0m"
 else
-echo -e "\e[31mTest Failed !\e[0m"
+echo -e "\e[31mTest Failed !(1/2)\e[0m"
 return 1
 fi
 nping --tcp -p 443 | grep filtered >>logs.txt
 if [ $? -eq 1 ]
 then
-echo -e "\e[32mTest 6 : OK\e[0m"
+echo -e "\e[32mTest 11 : OK(2/2)\e[0m"
 else
-echo -e "\e[31mTest Failed !\e[0m"
+echo -e "\e[31mTest Failed !(2/2)\e[0m"
 return 1
 fi
 
