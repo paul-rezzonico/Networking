@@ -58,11 +58,12 @@ fi
 
 #Test 6 on vérifie que l'on peut accéder au port 22 et 443 depuis pca :
 echo "Test 6 : port 22,443 accessibles (ssh et https closed)"
-nmap -p 22,443
-if [ $? -eq 0 ]
+nmap -p 22,443 172.16.112.35 | grep filtered
+if [ $? -eq 1 ]
 then
 echo -e "\e[32mTest 6 : OK\e[0m"
 else
 echo -e "\e[31mTest Failed !\e[0m"
 return 1
 fi
+
