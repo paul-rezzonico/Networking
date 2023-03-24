@@ -55,7 +55,7 @@ fi
 if [ $1 == "offline" ]
 then
 echo "Test 4 : internet inaccessible par serveur"
-ping -c 4 -w 5 google.com
+apt update
 if [ $? -eq 1 ]
 then
 echo -e "\e[32mTest 4 : OK\e[0m"
@@ -65,7 +65,7 @@ return 1
 fi
 else
 echo "Test 4 : internet accessible par serveur"
-ping -c 4 -w 5 google.com
+apt update
 if [ $? -eq 0 ]
 then
 echo -e "\e[32mTest 4 : OK\e[0m"
