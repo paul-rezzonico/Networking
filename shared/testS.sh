@@ -77,8 +77,8 @@ fi
 
 #Test 5 on vérifie que l'on peut accéder aux ports 25 de pca et de pcd depuis s :
 echo "Test 5 : port 53 accessible pca (1/2)"
-nmap -p 53 172.16.64.1
-if [ $? -eq 0 ]
+nmap -p 53 172.16.64.1 | grep filtered
+if [ $? -eq 1 ]
 then
 echo -e "\e[32mTest 5 : OK(1/2)\e[0m"
 else
@@ -86,8 +86,8 @@ echo -e "\e[31mTest Failed !(1/2)\e[0m"
 return 1
 fi
 echo "Test 5 : port 53 accessible pcd (2/2)"
-nmap -p 53 172.16.96.2
-if [ $? -eq 0 ]
+nmap -p 53 172.16.96.2 | grep filtered
+if [ $? -eq 1 ]
 then
 echo -e "\e[32mTest 5 : OK(2/2)\e[0m"
 else
@@ -96,6 +96,45 @@ return 1
 fi
 
 #Test 6 on vérifie que l'on peut accéder aux ports 80 de pca et de pcd depuis s :
+echo "Test 6 : port 80 accessible pca (1/2)"
+nmap -p 80 172.16.64.1 | grep filtered
+if [ $? -eq 1 ]
+then
+echo -e "\e[32mTest 6 : OK(1/2)\e[0m"
+else
+echo -e "\e[31mTest Failed !(1/2)\e[0m"
+return 1
+fi
+echo "Test 6 : port 80 accessible pcd (2/2)"
+nmap -p 80 172.16.96.2 | grep filtered
+if [ $? -eq 1 ] 
+then
+echo -e "\e[32mTest 6 : OK(2/2)\e[0m"
+else
+echo -e "\e[31mTest Failed !(2/2)\e[0m"
+return 1
+fi
+
+#Test 7 on vérifie que l'on ne peut pas accéder aux ports 443 de pca et de pcd depuis s :
+echo "Test 7 : port 443 inaccessible pca (1/2)"
+nmap -p 443 172.16.64.1 | grep filtered
+if [ $? -eq 0 ]
+then
+echo -e "\e[32mTest 7 : OK(1/2)\e[0m"
+else
+echo -e "\e[31mTest Failed !(1/2)\e[0m"
+return 1
+fi
+echo "Test 7 : port 443 inaccessible pcd (2/2)"
+nmap -p 443 172.16.96.2 | grep filtered
+if [ $? -eq 0 ]
+then
+echo -e "\e[32mTest 7 : OK(2/2)\e[0m"
+else
+echo -e "\e[31mTest Failed !(2/2)\e[0m"
+return 1
+fi
+
 
 
 
