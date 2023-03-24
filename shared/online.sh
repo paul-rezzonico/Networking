@@ -1,4 +1,4 @@
-sudo iptables -F FORWARD
+iptables -F FORWARD
 
 iptables -P INPUT DROP
 iptables -P OUTPUT DROP
