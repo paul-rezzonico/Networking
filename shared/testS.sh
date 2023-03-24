@@ -61,7 +61,7 @@ then
         echo -e "\e[32mTest 4 : OK\e[0m"
     else
         echo -e "\e[31mTest 4 : Test failed !\e[0m"
-    return 1
+        return 1
     fi
 else
     echo "Test 4 : internet accessible par serveur"
@@ -71,7 +71,8 @@ else
         echo -e "\e[32mTest 4 : OK\e[0m"
     else
         echo -e "\e[31mTest 4 : Test failed !\e[0m"
-    return 1
+        return 1
+    fi
 fi
 
 #Test 5 on vérifie que l'on peut accéder aux ports 25 de pca et de pcd depuis s :
@@ -133,9 +134,3 @@ else
 echo -e "\e[31mTest Failed !(2/2)\e[0m"
 return 1
 fi
-
-
-
-
-
-
