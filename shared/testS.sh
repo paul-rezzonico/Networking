@@ -54,25 +54,23 @@ fi
 #Test 4 on vérifie qu'internet est inaccessible depuis le serveur si l'argument est offline sinon accessible :
 if [ $1 == "offline" ]
 then
-echo "Test 4 : internet inaccessible par serveur"
-apt update
-if [ $? -eq 1 ]
-then
-echo -e "\e[32mTest 4 : OK\e[0m"
+    echo "Test 4 : internet inaccessible par serveur"
+    apt update
+    if [ $? -eq 1 ]
+    then
+        echo -e "\e[32mTest 4 : OK\e[0m"
+    else
+        echo -e "\e[31mTest 4 : Test failed !\e[0m"
+    return 1
 else
-echo -e "\e[31mTest 4 : Test failed !\e[0m"
-return 1
-fi
-else
-echo "Test 4 : internet accessible par serveur"
-apt update
-if [ $? -eq 0 ]
-then
-echo -e "\e[32mTest 4 : OK\e[0m"
-else
-echo -e "\e[31mTest 4 : Test failed !\e[0m"
-return 1
-fi
+    echo "Test 4 : internet accessible par serveur"
+    apt update
+    if [ $? -eq 0 ]
+    then
+        echo -e "\e[32mTest 4 : OK\e[0m"
+    else
+        echo -e "\e[31mTest 4 : Test failed !\e[0m"
+    return 1
 fi
 
 #Test 5 on vérifie que l'on peut accéder aux ports 25 de pca et de pcd depuis s :
