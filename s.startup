@@ -5,3 +5,5 @@ echo "nameserver  8.8.8.8">>/etc/resolv.conf
 
 #Pour les tests :
 echo "Acquire::http::Timeout "5";" >> /etc/apt/apt.conf
+apt update
+apt install -y nmap
