@@ -62,6 +62,7 @@ then
     else
         echo -e "\e[31mTest 4 : Test failed !\e[0m"
     return 1
+    fi
 else
     echo "Test 4 : internet accessible par serveur"
     apt update | grep "Err"
