@@ -55,8 +55,8 @@ fi
 if [ $1 == "offline" ]
 then
     echo "Test 4 : internet inaccessible par serveur"
-    apt update
-    if [ $? -eq 1 ]
+    apt update | grep "Err"
+    if [ $? -eq 0 ]
     then
         echo -e "\e[32mTest 4 : OK\e[0m"
     else
@@ -64,8 +64,8 @@ then
     return 1
 else
     echo "Test 4 : internet accessible par serveur"
-    apt update
-    if [ $? -eq 0 ]
+    apt update | grep "Err"
+    if [ $? -eq 1 ]
     then
         echo -e "\e[32mTest 4 : OK\e[0m"
     else
